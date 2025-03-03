@@ -1,0 +1,28 @@
+name: Release License Policy Check
+run-name: release-license-policy-check
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # test:
+
+  semantic-release:
+    # needs: [test]
+    runs-on: ubuntu-latest
+    name: semantic-release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - name: Install dependencies
+        run: npm install @semantic-release/commit-analyzer@13.0.1 @semantic-release/release-notes-generator@14.0.3 @semantic-release/changelog@6.0.3 @semantic-release/github@11.0.1 @semantic-release/exec@7.0.3 conventional-changelog-conventionalcommits@8.0.0 --save-dev
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # automatically created by GH action
+        run: npx semantic-release   # npx is included in npm -> Ubuntu

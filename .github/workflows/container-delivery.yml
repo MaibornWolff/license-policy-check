@@ -1,0 +1,41 @@
+name: Delivery License Policy Check
+run-name: delivery-license-policy-check
+on:
+  release:
+    types: [published]
+
+jobs:
+  delivery:
+    runs-on: ubuntu-latest
+    name: Push to container registry
+    steps:
+      - name: Checkout Github Repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/MaibornWolff/license-policy-check:latest
+            ghcr.io/MaibornWolff/license-policy-check:${{ github.event.release.tag_name }}
+
+
+    # - name: Generate artifact attestation
+    #     uses: actions/attest-build-provenance@v2
+    #     with:
+    #       subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+    #       subject-digest: ${{ steps.push.outputs.digest }}
+    #       push-to-registry: true
