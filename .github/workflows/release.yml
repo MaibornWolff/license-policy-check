@@ -52,5 +52,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/MaibornWolff/license-policy-check:latest
-            ghcr.io/MaibornWolff/license-policy-check:${{ steps.semantic-release.outputs.RELEASE_VERSION }}
+            ghcr.io/maibornwolff/license-policy-check:latest
+            ghcr.io/maibornwolff/license-policy-check:${{ steps.semantic-release.outputs.RELEASE_VERSION }}
