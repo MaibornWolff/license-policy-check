@@ -34,8 +34,8 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/MaibornWolff/license-policy-check:latest
-            ghcr.io/MaibornWolff/license-policy-check:${{ github.event.release.tag_name }}
+            ghcr.io/maibornwolff/license-policy-check:latest
+            ghcr.io/maibornwolff/license-policy-check:${{ github.event.release.tag_name }}
 
 
     # - name: Generate artifact attestation
