@@ -25,7 +25,12 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # automatically created by GH action
-        run: npx semantic-release   # npx is included in npm -> Ubuntu
+        run: | 
+          npx semantic-release   # npx is included in npm -> Ubuntu
+          VERSION=$(cat VERSION)
+          GIT_TAG=$(cat GIT_TAG)
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "RELEASE_TAG=$GIT_TAG" >> $GITHUB_OUTPUT
 
   delivery:
     runs-on: ubuntu-latest
