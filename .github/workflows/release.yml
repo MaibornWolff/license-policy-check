@@ -44,6 +44,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print release tag name
+        run: |
+          echo "Release tag name: ${{ needs.semantic-release.outputs.RELEASE_TAG }}"
+          echo "Release tag name: ${{ needs.semantic-release.outputs.RELEASE_VERSION }}"
 
       - name: Build and push
         uses: docker/build-push-action@v6
