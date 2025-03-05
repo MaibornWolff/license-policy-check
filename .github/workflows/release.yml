@@ -35,6 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      packages: write
     name: Push to container registry
     needs: [semantic-release]
     steps:
