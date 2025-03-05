@@ -10,6 +10,9 @@ repos:
         files: \.ya?ml$
       - id: check-added-large-files
       - id: mixed-line-ending
+      - id: detect-private-key
+      - id: check-symlinks
+      - id: check-merge-conflict
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
@@ -41,5 +44,10 @@ repos:
         args:
           - --style
           - DL3015
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
 
 ## We should include pyright in here as well as soon as we are building python code
