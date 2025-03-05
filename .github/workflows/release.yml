@@ -58,3 +58,12 @@ jobs:
           tags: |
             ghcr.io/maibornwolff/license-policy-check:latest
             ghcr.io/maibornwolff/license-policy-check:${{ needs.semantic-release.outputs.RELEASE_VERSION }}
+
+      - name: Publish new Action
+        run: | 
+          curl \
+          -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/maibornwolff/compliance-pipelines-analyze-sboms/dispatches \
+          -d '{"event_type":"webhook","client_payload":{"message":"testmessage"}'
