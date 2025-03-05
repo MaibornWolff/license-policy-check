@@ -3706,8 +3706,8 @@
             ]
         },
         {
-            "id": "unknown_id",
-            "name": "unknown_id",
+            "id": "CC-BY-4.0 AND MIT AND Apache-2.0",
+            "name": "CC-BY-4.0 AND MIT AND Apache-2.0",
             "family": "dummy286",
             "reference": "https://spdx.org/licenses/.html",
             "usagePolicy": "needs-review",
@@ -3719,8 +3719,8 @@
             ]
         },
         {
-            "id": "unknown_id",
-            "name": "unknown_id",
+            "id": "GPL-2.0-only OR (LGPL-2.1-only AND MIT)",
+            "name": "GPL-2.0-only OR (LGPL-2.1-only AND MIT)",
             "family": "dummy287",
             "reference": "https://spdx.org/licenses/.html",
             "usagePolicy": "needs-review",
@@ -3732,8 +3732,8 @@
             ]
         },
         {
-            "id": "unknown_id",
-            "name": "unknown_id",
+            "id": "GPL-2.0+ WITH Classpath OR BSD",
+            "name": "GPL-2.0+ WITH Classpath OR BSD",
             "family": "dummy288",
             "reference": "https://spdx.org/licenses/.html",
             "usagePolicy": "needs-review",
@@ -3745,8 +3745,8 @@
             ]
         },
         {
-            "id": "unknown_id",
-            "name": "unknown_id",
+            "id": "Weird unknown license",
+            "name": "Weird unknown license",
             "family": "dummy289",
             "reference": "https://spdx.org/licenses/.html",
             "usagePolicy": "needs-review",
